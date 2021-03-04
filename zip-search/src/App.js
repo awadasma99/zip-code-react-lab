@@ -41,22 +41,22 @@ class App extends Component {
     }
   }
 
-  async zipChanged (e) {
-    await this.setState({
-      zipCode: e.target.value
-    })
+  zipChanged (e) {
+    let zipCode = e.target.value;
 
-    if (this.state.zipCode.length === 5) {
-      fetch('http://ctp-zip-api.herokuapp.com/zip/' + this.state.zipCode)
+    if (zipCode.length === 5) {
+      fetch(`http://ctp-zip-api.herokuapp.com/zip/${zipCode}`)
         .then(response => response.json())
         .then(data => this.setState({ cities: data }))
         .catch(error => console.log(error))
     } else {
       this.setState({ cities: [] })
     }
+
+    this.setState({ zipCode })
   }
 
-  render () {
+  render() {
     return (
       <div className='App'>
         <div className='App-header'>
