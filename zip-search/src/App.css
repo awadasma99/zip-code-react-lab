@@ -17,3 +17,7 @@
   width: 30%;
   margin: 20px 0;
 }
+
+.card-header > h5 {
+  margin-bottom: 0;
+}
