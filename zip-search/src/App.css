@@ -4,3 +4,16 @@
   color: white;
   text-align: center;
 }
+
+.zip-search {
+  margin: 20px 0;
+}
+
+.zip-search > label {
+  font-weight: bold;
+}
+
+.card {
+  width: 30%;
+  margin: 20px 0;
+}
