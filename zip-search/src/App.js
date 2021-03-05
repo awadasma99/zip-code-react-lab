@@ -44,9 +44,9 @@ class App extends Component {
   zipChanged (e) {
     let zipCode = e.target.value;
 
-    const regex = new RegExp('^[0-9]*$')
+    const regex = new RegExp(/^[0-9]{5}$/)
 
-    if (zipCode.length === 5 && regex.test(zipCode)) {
+    if (regex.test(zipCode)) {
       fetch(`http://ctp-zip-api.herokuapp.com/zip/${zipCode}`)
         .then(response => response.json())
         .then(data => this.setState({ cities: data }))
