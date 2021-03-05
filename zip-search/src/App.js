@@ -44,7 +44,9 @@ class App extends Component {
   zipChanged (e) {
     let zipCode = e.target.value;
 
-    if (zipCode.length === 5) {
+    const regex = new RegExp('^[0-9]*$')
+
+    if (zipCode.length === 5 && regex.test(zipCode)) {
       fetch(`http://ctp-zip-api.herokuapp.com/zip/${zipCode}`)
         .then(response => response.json())
         .then(data => this.setState({ cities: data }))
@@ -65,7 +67,7 @@ class App extends Component {
         <div className='App-body'>
           <ZipSearchField onZipChange={e => this.zipChanged(e)} />
           <div>
-            {this.state.cities &&
+            {this.state.cities.length > 0 ?
               this.state.cities.map(city => (
                 <City
                   key={city.RecordNumber}
@@ -76,7 +78,9 @@ class App extends Component {
                   population={city.EstimatedPopulation}
                   wages={city.TotalWages}
                 />
-              ))}
+              ))
+              : <p className="no-results">No results</p>
+            }
           </div>
         </div>
       </div>

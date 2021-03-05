@@ -21,3 +21,8 @@
 .card-header > h5 {
   margin-bottom: 0;
 }
+
+.no-results {
+  text-align: center;
+  font-size: 20px;
+}
