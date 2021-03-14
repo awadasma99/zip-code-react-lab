@@ -1,0 +1,28 @@
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.zip-search {
+  margin: 20px 0;
+}
+
+.zip-search > label {
+  font-weight: bold;
+}
+
+.card {
+  width: 30%;
+  margin: 20px 0;
+}
+
+.card-header > h5 {
+  margin-bottom: 0;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 20px;
+}
