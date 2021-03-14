@@ -46,7 +46,7 @@ class App extends Component {
       fetch(`http://ctp-zip-api.herokuapp.com/city/${formattedCityName}`)
         .then(response => response.json())
         .then(data => this.setState({ zipcodes: data }))
-        .catch(error => console.log(error))
+        .catch(error => this.setState({ zipcodes: [] }))
     } else {
       this.setState({ zipcodes: [] })
     }
